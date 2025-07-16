@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>TekRide</title>
+
+  <script>
+    // Check connection status on page load
+    function checkConnection() {
+      if (!navigator.onLine) {
+        window.location.href = 'offline.html'; // Redirect to offline page if offline
+      }
+    }
+
+    // Listen for offline event
+    window.addEventListener('offline', () => {
+      window.location.href = 'offline.html'; // Redirect to offline page when going offline
+    });
+
+    // Listen for online event and reload the page
+    window.addEventListener('online', () => {
+      // Only reload if currently on the offline page (so it doesn’t reload on regular pages)
+      if (window.location.pathname === '/offline.html') {
+        location.reload(); // Forces a page reload to restore online content
+      }
+    });
+
+    // Run connection check on page load
+    window.onload = checkConnection;
+  </script>
+</head>
+<body>
+  <!-- Content of your page -->
+  <h1>Welcome to TekRide</h1>
+  <p>Your fast and affordable ride is just a click away.</p>
+</body>
+</html>

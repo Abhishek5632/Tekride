@@ -1,0 +1,205 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>SUV Car Rental</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      margin: 0;
+      padding: 0;
+      background-color: #f4f4f4;
+    }
+
+    header {
+      background-color: #003366;
+      color: #fff;
+      padding: 1em 0;
+      text-align: center;
+    }
+
+    header h1 {
+      margin: 0;
+      font-size: 2.5em;
+    }
+
+    .language-selector {
+      position: absolute;
+      top: 20px;
+      right: 20px;
+    }
+
+    .language-selector select {
+      padding: 5px;
+      font-size: 1em;
+    }
+
+    .container {
+      max-width: 800px;
+      margin: 20px auto;
+      padding: 20px;
+      background: #fff;
+      border-radius: 10px;
+      box-shadow: 0 2px 5px #007BFF;
+    }
+
+    .form-group {
+      margin-bottom: 15px;
+    }
+
+    label {
+      display: block;
+      margin-bottom: 5px;
+      font-weight: bold;
+    }
+
+    input, select, textarea {
+      width: 100%;
+      padding: 10px;
+      border: 1px solid #ccc;
+      border-radius: 5px;
+      font-size: 1em;
+    }
+
+    button {
+      display: block;
+      width: 100%;
+      padding: 10px;
+      background-color: #007BFF;
+      color: #fff;
+      border: none;
+      border-radius: 5px;
+      font-size: 1.2em;
+      cursor: pointer;
+    }
+
+    button:hover {
+      background-color: #0056b3;
+    }
+  </style>
+</head>
+<body onload="setLanguageOnLoad()">
+  <header>
+    <h1 id="title">SUV Car Rental</h1>
+ 
+
+  </header>
+  <div class="container">
+    <form action="#" method="POST">
+      <div class="form-group">
+        <label id="fullNameLabel" for="fullName">Full Name:</label>
+        <input type="text" id="fullName" name="fullName" required>
+      </div>
+
+      <div class="form-group">
+        <label id="emailLabel" for="email">Email Address:</label>
+        <input type="email" id="email" name="email" required>
+      </div>
+
+      <div class="form-group">
+        <label id="phoneLabel" for="phone">Phone Number:</label>
+        <input type="tel" id="phone" name="phone" required>
+      </div>
+
+      <div class="form-group">
+        <label id="carTypeLabel" for="carType">Select SUV:</label>
+        <select id="carType" name="carType" required>
+          <option value="">--Choose an SUV--</option>
+          <option value="Toyota Land Cruiser">Toyota Land Cruiser</option>
+          <option value="Range Rover">Range Rover</option>
+          <option value="Ford Explorer">Ford Explorer</option>
+          <option value="Chevrolet Tahoe">Chevrolet Tahoe</option>
+        </select>
+      </div>
+
+      <div class="form-group">
+        <label id="pickupDateLabel" for="pickupDate">Pick-Up Date:</label>
+        <input type="date" id="pickupDate" name="pickupDate" required>
+      </div>
+
+      <div class="form-group">
+        <label id="dropoffDateLabel" for="dropoffDate">Drop-Off Date:</label>
+        <input type="date" id="dropoffDate" name="dropoffDate" required>
+      </div>
+
+      <div class="form-group">
+        <label id="requirementsLabel" for="requirements">Additional Requirements:</label>
+        <textarea id="requirements" name="requirements" rows="4" placeholder="Enter any additional requests or details here..."></textarea>
+      </div>
+
+      <button id="submitButton" type="submit">Submit Booking</button>
+    </form>
+  </div>
+
+  <script>
+    const translations = {
+      en: {
+        title: "SUV Car Rental",
+        fullNameLabel: "Full Name:",
+        emailLabel: "Email Address:",
+        phoneLabel: "Phone Number:",
+        carTypeLabel: "Select SUV:",
+        pickupDateLabel: "Pick-Up Date:",
+        dropoffDateLabel: "Drop-Off Date:",
+        requirementsLabel: "Additional Requirements:",
+        submitButton: "Submit Booking",
+      },
+      hi: {
+        title: "एसयूवी कार किराया",
+        fullNameLabel: "पूरा नाम:",
+        emailLabel: "ईमेल पता:",
+        phoneLabel: "फोन नंबर:",
+        carTypeLabel: "एसयूवी चुनें:",
+        pickupDateLabel: "पिक-अप तिथि:",
+        dropoffDateLabel: "ड्रॉप-ऑफ तिथि:",
+        requirementsLabel: "अतिरिक्त आवश्यकताएँ:",
+        submitButton: "बुकिंग सबमिट करें",
+      },
+      ta: {
+        title: "SUV Car Rental",
+        fullNameLabel: "పూర్తి పేరు:",
+        emailLabel: "ఇమెయిల్ చిరునామా:",
+        phoneLabel: "ఫోన్ నంబర్:",
+        carTypeLabel: "SUV ఎంచుకోండి:",
+        pickupDateLabel: "పికప్ తేది:",
+        dropoffDateLabel: "డ్రాప్-ఆఫ్ తేది:",
+        requirementsLabel: "అదనపు అవసరాలు:",
+        submitButton: "బుకింగ్ సమర్పించండి",
+      },
+    };
+
+    function setLanguageOnLoad() {
+     
+      const browserLang = navigator.language.split('-')[0];
+      const supportedLangs = ['en', 'hi', 'ta'];
+      const defaultLang = supportedLangs.includes(browserLang) ? browserLang : 'en';
+
+      let selectedLang = localStorage.getItem('selectedLanguage') || defaultLang;
+      changeLanguage(selectedLang);
+      document.getElementById("languageSelect").value = selectedLang;
+    }
+
+    function changeLanguage(lang) {
+      const content = translations[lang];
+
+      document.getElementById("title").innerText = content.title;
+      document.getElementById("fullNameLabel").innerText = content.fullNameLabel;
+      document.getElementById("emailLabel").innerText = content.emailLabel;
+      document.getElementById("phoneLabel").innerText = content.phoneLabel;
+      document.getElementById("carTypeLabel").innerText = content.carTypeLabel;
+      document.getElementById("pickupDateLabel").innerText = content.pickupDateLabel;
+      document.getElementById("dropoffDateLabel").innerText = content.dropoffDateLabel;
+      document.getElementById("requirementsLabel").innerText = content.requirementsLabel;
+      document.getElementById("submitButton").innerText = content.submitButton;
+
+     
+      localStorage.setItem('selectedLanguage', lang);
+    }
+
+    function handleLanguageChange(lang) {
+      changeLanguage(lang);
+    }
+  </script>
+</body>
+</html>

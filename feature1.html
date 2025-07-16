@@ -1,0 +1,176 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title data-key="pageTitle">Feature 1: Multiple Pickup/Drop Locations</title>
+    <style>
+        body {
+            font-family: 'Arial', sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f4f8fb;
+            color: #333;
+            line-height: 1.6;
+        }
+
+        header {
+            background: linear-gradient(90deg, #3c8be0, #007BFF);
+            color: white;
+            padding: 20px;
+            text-align: center;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+        }
+        header h1 {
+            font-size: 26px;
+            margin: 0;
+            text-transform: uppercase;
+            letter-spacing: 1.5px;
+        }
+
+        .content {
+            padding: 30px;
+            max-width: 900px;
+            margin: 40px auto;
+            background-color: white;
+            border-radius: 12px;
+            box-shadow: 0 6px 12px rgba(0, 0, 0, 0.1);
+            border: 1px solid #ddd;
+        }
+
+        .content h2 {
+            color: #3c8be0;
+            font-size: 22px;
+            margin-bottom: 15px;
+            border-bottom: 2px solid #3c8be0;
+            display: inline-block;
+            padding-bottom: 5px;
+        }
+
+        .content p {
+            margin-bottom: 15px;
+            font-size: 16px;
+            color: #555;
+        }
+        .content strong {
+            color: #000;
+        }
+
+        .content ul {
+            list-style: disc;
+            margin: 20px 0;
+            padding-left: 40px;
+        }
+        .content li {
+            margin-bottom: 10px;
+            font-size: 16px;
+        }
+
+        .content blockquote {
+            font-size: 20px;
+            color: #0f0101;
+            border-left: 5px solid #007BFF;
+            padding: 15px;
+            margin: 20px 0;
+            background: linear-gradient(90deg, #74a4d6, #515152);
+            font-style: italic;
+            border-radius: 5px;
+        }
+
+        .cta {
+            text-align: center;
+            margin-top: 30px;
+        }
+        .cta a {
+            display: inline-block;
+            padding: 15px 30px;
+            background-color: #3c8be0;
+            color: white;
+            font-size: 16px;
+            font-weight: bold;
+            text-decoration: none;
+            border-radius: 50px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+            transition: background-color 0.3s, transform 0.3s;
+        }
+        .cta a:hover {
+            background-color: #0056b3;
+            transform: translateY(-3px);
+        }
+
+        a.back-link {
+            display: inline-block;
+            margin-top: 20px;
+            padding: 10px 20px;
+            background-color: #01070e;
+            color: white;
+            text-decoration: none;
+            border-radius: 5px;
+            font-weight: bold;
+            transition: background-color 0.3s, transform 0.3s;
+        }
+        a.back-link:hover {
+            background-color: #0056b3;
+            transform: translateY(-3px);
+        }
+
+        @media screen and (max-width: 768px) {
+            .content {
+                padding: 20px;
+                margin: 20px;
+            }
+            header h1 {
+                font-size: 20px;
+            }
+            .cta a {
+                padding: 12px 20px;
+                font-size: 14px;
+            }
+            a.back-link {
+                padding: 8px 15px;
+                font-size: 14px;
+            }
+        }
+    </style>
+    <script src="languageSwitcher.js" defer></script>
+    <script src="connection-check.js"></script>
+</head>
+<body>
+    <header>
+        <h1 data-key="headerTitle">Multiple Pickup / Drop Locations</h1>
+    </header>
+    <div class="content">
+        <h2 data-key="howItWorksTitle">How It Works</h2>
+        <p data-key="sharedPickup">
+            <strong>Shared Pickup/Drop Locations:</strong> For a quick and coordinated journey, choose the same pickup or drop-off point for everyone.
+        </p>
+        <p data-key="individualPickup">
+            <strong>Individual Pickup/Drop Locations:</strong> Traveling from different locations? No problem! Specify unique pickup and drop-off points for each passenger.
+        </p>
+        
+        <h2 data-key="whyConvenientTitle">Why It’s Convenient</h2>
+        <ul>
+            <li data-key="flexibility"><strong>Flexibility:</strong> Perfect for groups with varying schedules and routes.</li>
+            <li data-key="timeSaving"><strong>Time-Saving:</strong> Avoid detours and delays by organizing individual stops.</li>
+            <li data-key="seamless"><strong>Seamless Experience:</strong> Enjoy a stress-free ride with clear and accurate location details.</li>
+        </ul>
+
+        <h2 data-key="whoBenefitsTitle">Who Benefits from This Feature?</h2>
+        <ul>
+            <li data-key="families"><strong>Families:</strong> Pickup and drop off at multiple points for added convenience.</li>
+            <li data-key="friends"><strong>Friends:</strong> Join the ride from different locations without hassle.</li>
+            <li data-key="colleagues"><strong>Colleagues:</strong> Efficiently coordinate office pickups and drop-offs.</li>
+        </ul>
+
+        <blockquote data-key="quote">
+            "Experience the freedom to design your travel route your way. Choose TekRide for a ride-sharing experience tailored to your needs."
+        </blockquote>
+
+        <div class="cta">
+            <a href="multiplesharing.html" data-key="bookNow">Book a Cab for Multi-Sharing</a>
+        </div>
+
+        <a href="index.html" class="back-link" data-key="backToFeatures">← Back to Features</a>
+    </div>
+</body>
+</html>

@@ -1,0 +1,209 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Ride Schedule Management</title>
+  
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600&family=Raleway:wght@400;500&display=swap" rel="stylesheet">
+  
+  <style>
+    body, html {
+      margin: 0;
+      padding: 0;
+      font-family: 'Raleway', sans-serif;
+      background-color: #f7f7f7;
+      color: #333;
+    }
+
+    .container {
+      width: 80%;
+      margin: 0 auto;
+      padding: 40px 0;
+    }
+
+    h1, h2 {
+      color: #003366;
+      font-family: 'Montserrat', sans-serif;
+    }
+
+    .btn {
+      background-color: #00bcd4;
+      color: white;
+      padding: 15px 30px;
+      border-radius: 5px;
+      font-size: 18px;
+      border: none;
+      cursor: pointer;
+      transition: background-color 0.3s ease, transform 0.3s ease;
+    }
+
+    .btn:hover {
+      background-color: #008c99;
+      transform: scale(1.05);
+    }
+
+    .form-group {
+      margin-bottom: 20px;
+    }
+
+    input, select, button {
+      width: 100%;
+      padding: 10px;
+      margin: 5px 0;
+      font-size: 16px;
+      border-radius: 5px;
+      border: 1px solid #ccc;
+    }
+
+    .schedule-list {
+      margin-top: 30px;
+      background: #ffffff;
+      padding: 20px;
+      border-radius: 10px;
+      box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+    }
+
+    .schedule-item {
+      background: #f2f2f2;
+      padding: 15px;
+      margin-bottom: 10px;
+      border-radius: 5px;
+    }
+
+    .schedule-item p {
+      margin: 5px 0;
+    }
+
+    .schedule-item button {
+      background-color: #ff5722;
+      color: white;
+      padding: 10px 20px;
+      font-size: 16px;
+      border: none;
+      border-radius: 5px;
+      cursor: pointer;
+    }
+
+    .schedule-item button:hover {
+      background-color: #e64a19;
+    }
+
+    .lang-selector {
+      margin-bottom: 20px;
+    }
+  </style>
+<script src="connection-check.js"></script>
+</head>
+<body>
+
+  <div class="container">
+    <h1 id="pageTitle">Manage Your Ride Schedule</h1>
+    <p id="pageSubtitle">Fill in your ride details to generate a schedule.</p>
+
+    <div class="form-group">
+      <h2 id="step1Title">Step 1: Identify Your Preferences</h2>
+      <label for="frequency" id="frequencyLabel">Ride Frequency:</label>
+      <select id="frequency" name="frequency">
+        <option value="daily">Daily</option>
+        <option value="weekly">Weekly</option>
+        <option value="monthly">Monthly</option>
+      </select>
+      
+      <label for="time" id="timeLabel">Preferred Time:</label>
+      <input type="time" id="time" name="time" required>
+      
+      <label for="location" id="locationLabel">Pick-up Location:</label>
+      <input type="text" id="location" name="location" required>
+      
+      <button class="btn" onclick="generateSchedule()" id="generateScheduleButton">Generate Schedule</button>
+    </div>
+
+    <div class="schedule-list">
+      <h2 id="scheduleTitle">Your Ride Schedule</h2>
+      <div id="scheduleItems">
+      </div>
+    </div>
+  </div>
+
+  <script>
+    const translations = {
+      en: {
+        pageTitle: "Manage Your Ride Schedule",
+        pageSubtitle: "Fill in your ride details to generate a schedule.",
+        step1Title: "Step 1: Identify Your Preferences",
+        frequencyLabel: "Ride Frequency:",
+        timeLabel: "Preferred Time:",
+        locationLabel: "Pick-up Location:",
+        generateScheduleButton: "Generate Schedule",
+        scheduleTitle: "Your Ride Schedule",
+      },
+      hi: {
+        pageTitle: "अपनी राइड शेड्यूल प्रबंधित करें",
+        pageSubtitle: "अपनी राइड डिटेल्स भरें और एक शेड्यूल जनरेट करें।",
+        step1Title: "चरण 1: अपनी प्राथमिकताओं को पहचानें",
+        frequencyLabel: "राइड की आवृत्ति:",
+        timeLabel: "पसंदीदा समय:",
+        locationLabel: "पिक-अप स्थान:",
+        generateScheduleButton: "शेड्यूल जनरेट करें",
+        scheduleTitle: "आपकी राइड शेड्यूल",
+      },
+      ta: {
+        pageTitle: "உங்கள் ரைட் அட்டவணையை நிர்வகிக்கவும்",
+        pageSubtitle: "உங்கள் ரைட் விவரங்களை உள்ளிடவும், ஒரு அட்டவணையை உருவாக்கவும்.",
+        step1Title: "படி 1: உங்கள் விருப்பங்களை அறியவும்",
+        frequencyLabel: "ரைட் அலைவு:",
+        timeLabel: "முன்பதிவு நேரம்:",
+        locationLabel: "பிக்கப் இடம்:",
+        generateScheduleButton: "அட்டவணை உருவாக்கவும்",
+        scheduleTitle: "உங்கள் ரைட் அட்டவணை",
+      },
+    };
+
+    function changeLanguage(lang) {
+      const translation = translations[lang];
+      if (translation) {
+        document.getElementById("pageTitle").innerText = translation.pageTitle;
+        document.getElementById("pageSubtitle").innerText = translation.pageSubtitle;
+        document.getElementById("step1Title").innerText = translation.step1Title;
+        document.getElementById("frequencyLabel").innerText = translation.frequencyLabel;
+        document.getElementById("timeLabel").innerText = translation.timeLabel;
+        document.getElementById("locationLabel").innerText = translation.locationLabel;
+        document.getElementById("generateScheduleButton").innerText = translation.generateScheduleButton;
+        document.getElementById("scheduleTitle").innerText = translation.scheduleTitle;
+      } else {
+        console.error("Translation for this language is not available.");
+      }
+    }
+
+    function detectLanguage() {
+      let lang = "en";
+      const storedLang = localStorage.getItem('selectedLanguage');
+      if (storedLang && translations[storedLang]) {
+        lang = storedLang;
+      } else {
+        const pageLang = document.documentElement.lang;
+        if (pageLang && translations[pageLang]) {
+          lang = pageLang;
+        }
+      }
+  
+      changeLanguage(lang);
+    }
+  
+    window.onload = detectLanguage;
+
+    function generateSchedule() {
+      const frequency = document.getElementById('frequency').value;
+      const time = document.getElementById('time').value;
+      const location = document.getElementById('location').value;
+      
+      const scheduleItems = document.getElementById('scheduleItems');
+      const scheduleItem = document.createElement('div');
+      scheduleItem.classList.add('schedule-item');
+      scheduleItem.innerHTML = `<p>Frequency: ${frequency}</p><p>Time: ${time}</p><p>Pick-up Location: ${location}</p>`;
+      scheduleItems.appendChild(scheduleItem);
+    }
+  </script>
+</body>
+</html>

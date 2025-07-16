@@ -1,0 +1,221 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Ride Preferences</title>
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600&family=Raleway:wght@400;500&display=swap" rel="stylesheet">
+  <style>
+    body, html {
+      margin: 0;
+      padding: 0;
+      font-family: 'Raleway', sans-serif;
+      color: #333;
+      background-color: #f4f4f4;
+    }
+
+    .container {
+      width: 80%;
+      margin: 0 auto;
+    }
+
+    h1 {
+      font-family: 'Montserrat', sans-serif;
+      color: #003366;
+      text-align: center;
+      padding: 40px 0;
+    }
+
+    h2 {
+      color: #003366;
+      font-size: 24px;
+      margin-bottom: 20px;
+    }
+
+    .section {
+      margin-bottom: 40px;
+    }
+
+    .section label {
+      font-size: 18px;
+      color: #003366;
+    }
+
+    .section select, .section input[type="radio"], .section input[type="checkbox"] {
+      margin-top: 10px;
+      padding: 10px;
+      font-size: 16px;
+      width: 100%;
+    }
+
+    .section input[type="radio"], .section input[type="checkbox"] {
+      width: auto;
+    }
+
+    .preferences-btn {
+      display: block;
+      margin-top: 30px;
+      padding: 12px 24px;
+      background-color: #00bcd4;
+      color: white;
+      text-decoration: none;
+      font-size: 18px;
+      border-radius: 5px;
+      text-align: center;
+      width: 200px;
+      margin-left: auto;
+      margin-right: auto;
+      transition: background-color 0.3s;
+    }
+
+    .preferences-btn:hover {
+      background-color: #008c99;
+    }
+
+    .row {
+      display: flex;
+      justify-content: space-between;
+    }
+
+    .row div {
+      width: 48%;
+    }
+  </style>
+  <script src="connection-check.js"></script>
+</head>
+<body>
+
+  <div class="container">
+    <h1 id="header-title">Set Your Ride Preferences</h1>
+
+    <div class="section" id="personal-preferences">
+      <h2 id="personal-preferences-title">Personal Preferences</h2>
+      <label for="vehicle-type" id="vehicle-type-label">Preferred Vehicle Type:</label>
+      <select id="vehicle-type" name="vehicle-type">
+        <option value="economy">Economy</option>
+        <option value="luxury">Luxury</option>
+        <option value="suv">SUV</option>
+      </select>
+      
+      <label for="temperature" id="temperature-label">Temperature Control:</label>
+      <input type="radio" id="temperature-cold" name="temperature" value="cold"> Cold
+      <input type="radio" id="temperature-warm" name="temperature" value="warm"> Warm
+      <input type="radio" id="temperature-neutral" name="temperature" value="neutral"> Neutral
+
+      <label for="music" id="music-label">Music Choice:</label>
+      <select id="music" name="music">
+        <option value="pop">Pop</option>
+        <option value="rock">Rock</option>
+        <option value="classical">Classical</option>
+        <option value="jazz">Jazz</option>
+        <option value="no-music">No Music</option>
+      </select>
+    </div>
+
+ 
+    <div class="section" id="vehicle-selection">
+      <h2 id="vehicle-selection-title">Vehicle Selection</h2>
+      <label for="vehicle-selection" id="vehicle-selection-label">Choose Vehicle Type:</label>
+      <select id="vehicle-selection" name="vehicle-selection">
+        <option value="economy">Economy</option>
+        <option value="luxury">Luxury</option>
+        <option value="suv">SUV</option>
+      </select>
+    </div>
+
+
+    <div class="section" id="accessibility-options">
+      <h2 id="accessibility-options-title">Accessibility Options</h2>
+      <div class="row">
+        <div>
+          <label for="disability" id="disability-label">Need Accessible Vehicle?</label>
+          <input type="checkbox" id="disability" name="disability">
+        </div>
+        <div>
+          <label for="pet-friendly" id="pet-friendly-label">Pet-Friendly Ride?</label>
+          <input type="checkbox" id="pet-friendly" name="pet-friendly">
+        </div>
+      </div>
+    </div>
+
+
+    <div class="section" id="driver-selection">
+      <h2 id="driver-selection-title">Driver Selection</h2>
+      <label for="preferred-driver" id="preferred-driver-label">Preferred Driver Rating:</label>
+      <input type="radio" id="driver-good" name="driver" value="good"> Good
+      <input type="radio" id="driver-excellent" name="driver" value="excellent"> Excellent
+      <input type="radio" id="driver-any" name="driver" value="any"> Any Driver
+    </div>
+
+ 
+    <a href="confirmation.html" class="preferences-btn" id="save-preferences-btn">Save Preferences</a>
+  </div>
+
+  <script>
+    const translations = {
+      en: {
+        "header-title": "Set Your Ride Preferences",
+        "personal-preferences-title": "Personal Preferences",
+        "vehicle-type-label": "Preferred Vehicle Type:",
+        "temperature-label": "Temperature Control:",
+        "music-label": "Music Choice:",
+        "vehicle-selection-title": "Vehicle Selection",
+        "vehicle-selection-label": "Choose Vehicle Type:",
+        "accessibility-options-title": "Accessibility Options",
+        "disability-label": "Need Accessible Vehicle?",
+        "pet-friendly-label": "Pet-Friendly Ride?",
+        "driver-selection-title": "Driver Selection",
+        "preferred-driver-label": "Preferred Driver Rating:",
+        "save-preferences-btn": "Save Preferences"
+      },
+      hi: {
+        "header-title": "अपनी सवारी प्राथमिकताएँ सेट करें",
+        "personal-preferences-title": "व्यक्तिगत प्राथमिकताएँ",
+        "vehicle-type-label": "पसंदीदा वाहन प्रकार:",
+        "temperature-label": "तापमान नियंत्रण:",
+        "music-label": "संगीत विकल्प:",
+        "vehicle-selection-title": "वाहन चयन",
+        "vehicle-selection-label": "वाहन प्रकार चुनें:",
+        "accessibility-options-title": "सुलभता विकल्प",
+        "disability-label": "सुलभ वाहन चाहिए?",
+        "pet-friendly-label": "पालतू अनुकूल सवारी?",
+        "driver-selection-title": "ड्राइवर चयन",
+        "preferred-driver-label": "पसंदीदा ड्राइवर रेटिंग:",
+        "save-preferences-btn": "प्राथमिकताएँ सहेजें"
+      },
+      ta: {
+        "header-title": "உங்கள் ரைடு விருப்பங்களை அமைக்கவும்",
+        "personal-preferences-title": "தனிப்பட்ட விருப்பங்கள்",
+        "vehicle-type-label": "வாகன வகை தேர்வு:",
+        "temperature-label": "வெப்பநிலை கட்டுப்பாடு:",
+        "music-label": "இசை விருப்பம்:",
+        "vehicle-selection-title": "வாகன தேர்வு",
+        "vehicle-selection-label": "வாகன வகையை தேர்வுசெய்க:",
+        "accessibility-options-title": "அணுகல்தன்மை விருப்பங்கள்",
+        "disability-label": "அணுகக்கூடிய வாகனம் தேவை?",
+        "pet-friendly-label": "விலங்குகளை அனுசரிக்கும் சவாரி?",
+        "driver-selection-title": "இயக்குனர் தேர்வு",
+        "preferred-driver-label": "விருப்பமான இயக்குனர் மதிப்பீடு:",
+        "save-preferences-btn": "விருப்பங்களைச் சேமிக்கவும்"
+      }
+    };
+
+    function changeLanguage(lang) {
+      const content = translations[lang];
+      for (const key in content) {
+        const element = document.getElementById(key);
+        if (element) element.textContent = content[key];
+      }
+      localStorage.setItem('selectedLanguage', lang);
+    }
+
+    function setLanguageOnLoad() {
+      const lang = localStorage.getItem('selectedLanguage') || 'en';
+      changeLanguage(lang);
+    }
+
+    setLanguageOnLoad();
+  </script>
+
+</body>
+</html>

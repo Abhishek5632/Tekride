@@ -1,0 +1,178 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>About Language Change Feature - TekRide</title>
+  <style>
+    body, html {
+      margin: 0;
+      padding: 0;
+      font-family: 'Arial', sans-serif;
+      background-color: #f4f4f4;
+      color: #333;
+    }
+
+    .container {
+      width: 80%;
+      margin: 0 auto;
+      padding: 30px 0;
+    }
+
+    h1, h2 {
+      color: #003366;
+      font-family: 'Montserrat', Arial, sans-serif;
+    }
+
+    .content {
+      background-color: white;
+      padding: 30px;
+      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+      border-radius: 8px;
+      margin-top: 30px;
+    }
+
+    p {
+      font-size: 18px;
+      line-height: 1.6;
+      color: #555;
+    }
+
+    .cta-button {
+      background-color: #00bcd4;
+      color: white;
+      padding: 12px 24px;
+      font-size: 18px;
+      border-radius: 5px;
+      text-decoration: none;
+      display: inline-block;
+      margin-top: 20px;
+    }
+
+    .cta-button:hover {
+      background-color: #0288d1;
+    }
+
+    .feature-list {
+      list-style-type: none;
+      padding: 0;
+    }
+
+    .feature-list li {
+      margin-bottom: 10px;
+    }
+
+    .feature-list li::before {
+      content: "✔";
+      color: #00bcd4;
+      margin-right: 10px;
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <h1 id="page-title">About TekRide's Language Change Feature</h1>
+    <div class="content">
+      <h2 id="feature-heading">Language Flexibility at Your Fingertips</h2>
+      <p id="intro-text">
+        TekRide understands the importance of making our service accessible to everyone, regardless of their preferred language. That's why we’ve introduced a multi-language feature on our platform, enabling users to choose from multiple languages for the interface. 
+        This feature ensures a smoother and more personalized experience for all users.
+      </p>
+      <h3 id="available-languages-heading">Available Languages:</h3>
+      <ul class="feature-list" id="languages-list">
+      </ul>
+      <p id="how-to-change-lang">You can easily switch between these languages using the language options available at the top of the homepage or any other page.</p>
+      <h3 id="change-lang-heading">How to Change the Language:</h3>
+      <p id="steps-intro">To change the language, simply follow these steps:</p>
+      <ol id="steps-list">
+        <li>Visit any page of the TekRide website.</li>
+        <li>Look for the language selection option in the navigation bar (top of the page).</li>
+        <li>Select your preferred language from the available options (English, Hindi, or Tamil).</li>
+        <li>The entire website will be updated instantly to display content in your selected language.</li>
+      </ol>
+      <p id="simple-text">It’s that simple! We’re committed to ensuring you have the best experience possible in your preferred language.</p>
+      <a href="index.html" class="cta-button" id="cta-button">Go Back to Home</a>
+    </div>
+  </div>
+
+  <script>
+    const translations = {
+      en: {
+        pageTitle: "About TekRide's Language Change Feature",
+        featureHeading: "Language Flexibility at Your Fingertips",
+        introText: "TekRide understands the importance of making our service accessible to everyone, regardless of their preferred language. That's why we’ve introduced a multi-language feature on our platform, enabling users to choose from multiple languages for the interface. This feature ensures a smoother and more personalized experience for all users.",
+        availableLanguagesHeading: "Available Languages:",
+        howToChangeLang: "You can easily switch between these languages using the language options available at the top of the homepage or any other page.",
+        changeLangHeading: "How to Change the Language:",
+        stepsIntro: "To change the language, simply follow these steps:",
+        step1: "Visit any page of the TekRide website.",
+        step2: "Look for the language selection option in the navigation bar (top of the page).",
+        step3: "Select your preferred language from the available options (English, Hindi, or Tamil).",
+        step4: "The entire website will be updated instantly to display content in your selected language.",
+        simpleText: "It’s that simple! We’re committed to ensuring you have the best experience possible in your preferred language.",
+        ctaButton: "Go Back to Home"
+      },
+      hi: {
+        pageTitle: "TekRide की भाषा परिवर्तन सुविधा के बारे में",
+        featureHeading: "आपकी उंगलियों पर भाषा की लचीलापन",
+        introText: "TekRide यह समझता है कि हमारी सेवा को हर किसी के लिए उनके पसंदीदा भाषा के अनुसार सुलभ बनाना कितना महत्वपूर्ण है। इसलिए हमने हमारी प्लेटफार्म पर एक बहुभाषी सुविधा पेश की है, जो उपयोगकर्ताओं को इंटरफेस के लिए कई भाषाओं में से चुनने की अनुमति देती है। यह सुविधा सभी उपयोगकर्ताओं के लिए एक बेहतर और व्यक्तिगत अनुभव सुनिश्चित करती है।",
+        availableLanguagesHeading: "उपलब्ध भाषाएँ:",
+        howToChangeLang: "आप आसानी से इन भाषाओं के बीच स्विच कर सकते हैं जो होमपेज या किसी अन्य पृष्ठ के शीर्ष पर उपलब्ध भाषा विकल्पों का उपयोग करके।",
+        changeLangHeading: "भाषा कैसे बदलें:",
+        stepsIntro: "भाषा बदलने के लिए, बस इन चरणों का पालन करें:",
+        step1: "TekRide वेबसाइट के किसी भी पृष्ठ पर जाएं।",
+        step2: "नेविगेशन बार में भाषा चयन विकल्प खोजें (पृष्ठ के शीर्ष पर)।",
+        step3: "उपलब्ध भाषाओं में से अपनी पसंदीदा भाषा चुनें (अंग्रेजी, हिंदी, या तमिल)।",
+        step4: "पूरा वेबसाइट तुरंत आपकी चुनी हुई भाषा में सामग्री प्रदर्शित करने के लिए अपडेट हो जाएगा।",
+        simpleText: "बस इतना आसान! हम यह सुनिश्चित करने के लिए प्रतिबद्ध हैं कि आपको आपकी पसंदीदा भाषा में सर्वोत्तम अनुभव प्राप्त हो।",
+        ctaButton: "होमपेज पर वापस जाएं"
+      },
+      ta: {
+        pageTitle: "TekRide மொழி மாற்ற அம்சம் பற்றி",
+        featureHeading: "உங்கள் விருப்பத்தில் மொழி நெகிழ்வுத்தன்மை",
+        introText: "TekRide எங்கள் சேவையை எல்லா பயனாளர்களுக்கும் அவர்கள் விரும்பும் மொழியில் கிடைக்கப் பெறுவதை முக்கியமாக எடுத்துக் கொண்டுள்ளது. அதனால், நாங்கள் எங்கள் தளத்தில் பல மொழிகளுக்கு இடையேயான தேர்வை வழங்கும் ஒரு பல்தொடர் மொழி அம்சத்தை அறிமுகப்படுத்தியுள்ளோம். இந்த அம்சம் அனைத்து பயனாளர்களுக்கும் சிறந்த மற்றும் தனிப்பயனாக்கப்பட்ட அனுபவத்தை உறுதி செய்கிறது.",
+        availableLanguagesHeading: "கிடைக்கக் கூடிய மொழிகள்:",
+        howToChangeLang: "இந்த மொழிகளுக்கிடையே எளிதாக மாற்றம் செய்ய முடியும். இந்த மொழி தேர்வு விருப்பங்களை வீட்டுபக்கம் அல்லது வேறு எந்தப் பக்கத்திலும் மேலே காணலாம்.",
+        changeLangHeading: "மொழி எவ்வாறு மாற்றுவது:",
+        stepsIntro: "மொழியை மாற்ற, இவற்றை பின்பற்றவும்:",
+        step1: "TekRide இணையதளத்தின் எந்த பக்கத்திலும் சென்று பார்வையிடவும்.",
+        step2: "நேவிகேஷன் பட்டியில் மொழி தேர்வு விருப்பத்தைப் பாருங்கள் (பக்கத்தின் மேல் பகுதியில்).",
+        step3: "கிடைக்கக்கூடிய மொழிகளிலிருந்து உங்கள் விருப்ப மொழியைத் தேர்ந்தெடுக்கவும் (ஆங்கிலம், இந்தி அல்லது தமிழ்).",
+        step4: "முழு இணையதளம் உடனடியாக உங்கள் தேர்ந்த மொழியில் உள்ளடக்கத்தை காட்டுவதற்காக புதுப்பிக்கப்படும்.",
+        simpleText: "எப்படி எளிதாக! உங்கள் விருப்ப மொழியில் சிறந்த அனுபவத்தைப் பெற நீங்கள் எங்கள் உதவிக்குறிப்புகளுடன் இருக்க விரும்புகிறோம்.",
+        ctaButton: "வீட்டுப் பக்கத்திற்கு திரும்பவும்"
+      }
+    };
+  
+ function changeLanguage(lang) {
+      const content = translations[lang];
+      if (content) {
+        document.getElementById("page-title").innerText = content.pageTitle;
+        document.getElementById("feature-heading").innerText = content.featureHeading;
+        document.getElementById("intro-text").innerText = content.introText;
+        document.getElementById("available-languages-heading").innerText = content.availableLanguagesHeading;
+        document.getElementById("how-to-change-lang").innerText = content.howToChangeLang;
+        document.getElementById("change-lang-heading").innerText = content.changeLangHeading;
+        document.getElementById("steps-intro").innerText = content.stepsIntro;
+        document.getElementById("steps-list").children[0].innerText = content.step1;
+        document.getElementById("steps-list").children[1].innerText = content.step2;
+        document.getElementById("steps-list").children[2].innerText = content.step3;
+        document.getElementById("steps-list").children[3].innerText = content.step4;
+        document.getElementById("simple-text").innerText = content.simpleText;
+        document.getElementById("cta-button").innerText = content.ctaButton;
+
+        localStorage.setItem('selectedLanguage', lang);
+      } else {
+        console.error("Translation for this language is not available.");
+      }
+    }
+  
+    function setLanguageOnLoad() {
+      const selectedLang = localStorage.getItem('selectedLanguage') || 'en';
+      changeLanguage(selectedLang);
+    }
+  
+  
+    setLanguageOnLoad();
+  </script>
+  

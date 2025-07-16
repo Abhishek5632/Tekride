@@ -1,0 +1,197 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Single Sharing</title>
+    <style>
+      
+        body {
+            font-family: 'Arial', sans-serif;
+            background-color: #f4f4f9;
+            margin: 0;
+            padding: 20px;
+            color: #333;
+        }
+
+        
+        header {
+            background-color: #00bcd4;
+            padding: 10px;
+            text-align: center;
+        }
+
+        nav ul {
+            list-style: none;
+            padding: 0;
+            margin: 0;
+            display: flex;
+            justify-content: center;
+        }
+
+        nav ul li {
+            margin: 0 10px;
+        }
+
+        nav ul li a {
+            color: white;
+            text-decoration: none;
+            font-size: 16px;
+            font-weight: bold;
+        }
+
+        nav ul li a:hover {
+            color: #003366;
+        }
+
+
+        h2 {
+            font-family: 'Montserrat', sans-serif;
+            color: #003366;
+            text-align: center;
+            margin-bottom: 30px;
+
+        }
+        form {
+            background-color: #ffffff;
+            padding: 30px;
+            border-radius: 10px;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+            max-width: 500px;
+            margin: 0 auto;
+        }
+
+        label {
+            font-size: 16px;
+            margin-bottom: 8px;
+            display: block;
+        }
+
+        input[type="text"] {
+            width: 100%;
+            padding: 12px;
+            margin-bottom: 15px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            font-size: 16px;
+        }
+
+        button {
+            background-color: #00bcd4;
+            color: white;
+            border: none;
+            padding: 12px 20px;
+            border-radius: 5px;
+            cursor: pointer;
+            width: 100%;
+            font-size: 16px;
+        }
+
+        button:hover {
+            background-color: #003366;
+        }
+
+        @media (max-width: 768px) {
+            form {
+                padding: 20px;
+            }
+
+            h2 {
+                font-size: 22px;
+            }
+
+            label, input[type="text"], button {
+                font-size: 14px;
+            }
+        }
+    </style>
+    <script src="connection-check.js"></script> 
+<body>
+
+    <header>
+        <h1>TekRide</h1>
+        <nav>
+            <ul>
+                <li><a href="index.html">Home</a></li>
+                <li><a href="offline2.html">Book Offline</a></li>
+                <li><a href="rentvehicle.html">Rent Vehicle</a></li>
+                <li><a href="contactus.html">Contact Us</a></li>
+            </ul>
+        </nav>
+    </header>
+
+
+    <h2 id="page-title">Single Sharing</h2>
+    <form id="singleSharingForm">
+        <label for="personName" id="person-name-label">Name:</label>
+        <input type="text" id="personName" name="personName" placeholder="Enter your name" required>
+
+        <label for="pickup" id="pickup-label">Pick Up:</label>
+        <input type="text" id="pickup" name="pickup" placeholder="Enter pickup location" required>
+
+        <label for="dropoff" id="dropoff-label">Drop Off:</label>
+        <input type="text" id="dropoff" name="dropoff" placeholder="Enter drop location" required>
+
+        <button type="submit" id="submit-button">Save</button>
+    </form>
+
+    <script>
+        
+        const translations = {
+            en: {
+                pageTitle: "Single Sharing",
+                personNameLabel: "Name:",
+                pickupLabel: "Pick Up:",
+                dropoffLabel: "Drop Off:",
+                submitButton: "Save",
+            },
+            hi: {
+                pageTitle: "एकल साझेदारी",
+                personNameLabel: "नाम:",
+                pickupLabel: "पिकअप स्थान:",
+                dropoffLabel: "ड्रॉप स्थान:",
+                submitButton: "सहेजें",
+            },
+            ta: {
+                pageTitle: "ஒற்றை பகிர்வு",
+                personNameLabel: "பெயர்:",
+                pickupLabel: "பிக்கப் இடம்:",
+                dropoffLabel: "இறக்க இடம்:",
+                submitButton: "சேமிக்கவும்",
+            },
+        };
+
+        function changeLanguage(lang) {
+            const content = translations[lang];
+            document.getElementById('page-title').innerText = content.pageTitle;
+            document.getElementById('person-name-label').innerText = content.personNameLabel;
+            document.getElementById('pickup-label').innerText = content.pickupLabel;
+            document.getElementById('dropoff-label').innerText = content.dropoffLabel;
+            document.getElementById('submit-button').innerText = content.submitButton;
+
+          
+            localStorage.setItem('selectedLanguage', lang);
+        }
+
+        
+        function setLanguageOnLoad() {
+            const selectedLang = localStorage.getItem('selectedLanguage') || 'en'; 
+            changeLanguage(selectedLang);
+        }
+
+        setLanguageOnLoad();
+
+
+        const form = document.getElementById("singleSharingForm");
+        form.addEventListener("submit", function (e) {
+            e.preventDefault();
+            const personName = document.getElementById("personName").value;
+            const pickup = document.getElementById("pickup").value;
+            const dropoff = document.getElementById("dropoff").value;
+
+            localStorage.setItem("singleSharing", JSON.stringify({ personName, pickup, dropoff }));
+            alert("Single Sharing details saved!");
+        });
+    </script>
+</body>
+</html>

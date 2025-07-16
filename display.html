@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Display Details</title>
+    <style>
+       
+        body {
+            font-family: 'Arial', sans-serif;
+            background-color: #f4f4f9;
+            margin: 0;
+            padding: 20px;
+            color: #333;
+        }
+
+        h2 {
+            color: #003366;
+            text-align: center;
+            margin-bottom: 30px;
+        }
+
+        .details-container {
+            background: #ffffff;
+            padding: 20px;
+            margin: 10px 0;
+            border-radius: 10px;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+        }
+
+        .details-container p {
+            margin: 5px 0;
+            font-size: 16px;
+            line-height: 1.6;
+        }
+
+        .empty-state {
+            font-style: italic;
+            color: #888;
+            text-align: center;
+        }
+    </style>
+</head>
+<body>
+    <h2>Stored Booking Details</h2>
+
+
+    <div class="details-container" id="singleSharingDetails">
+        <h3>Single Sharing Details</h3>
+        <p id="singleSharingData" class="empty-state">Loading...</p>
+    </div>
+
+   
+    <div class="details-container" id="multipleSharingDetails">
+        <h3>Multiple Sharing Details</h3>
+        <p id="multipleSharingData" class="empty-state">Loading...</p>
+    </div>
+
+    <script>
+                function displaySingleSharingData() {
+            const singleSharing = JSON.parse(localStorage.getItem("singleSharing"));
+            const singleSharingDataElement = document.getElementById("singleSharingData");
+
+            if (singleSharing) {
+                singleSharingDataElement.innerHTML = `
+                    <strong>Name:</strong> ${singleSharing.name || "N/A"}<br>
+                    <strong>Pickup Location:</strong> ${singleSharing.pickup || "N/A"}<br>
+                    <strong>Drop Location:</strong> ${singleSharing.drop || "N/A"}
+                `;
+            } else {
+                singleSharingDataElement.innerText = "No single sharing data available.";
+            }
+        }
+
+        function displayMultipleSharingData() {
+            const multipleSharing = JSON.parse(localStorage.getItem("multipleSharing"));
+            const multipleSharingDataElement = document.getElementById("multipleSharingData");
+
+            if (multipleSharing) {
+                let content = `
+                    <strong>Number of Persons:</strong> ${multipleSharing.numPersons}<br>
+                    <strong>Shared Drop Location:</strong> ${multipleSharing.sharedDrop}<br>
+                `;
+
+                if (multipleSharing.sharedPickUp) {
+                    content += `<strong>Shared Pickup Location:</strong> ${multipleSharing.sharedPickUp}<br>`;
+                }
+
+              
+                for (let i = 1; i <= multipleSharing.numPersons; i++) {
+                    let pickupLocation = multipleSharing[`person${i}PickUp`] || multipleSharing.sharedDrop;
+
+                    content += `
+                        <strong>Person ${i}:</strong><br>
+                        - Name: ${multipleSharing[`person${i}Name`] || "N/A"}<br>
+                        - Pickup Location: ${pickupLocation || "N/A"}<br>
+                        - Drop Location: ${multipleSharing[`person${i}Drop`] || "N/A"}<br>
+                        <br>
+                    `;
+                }
+
+                multipleSharingDataElement.innerHTML = content;
+            } else {
+                multipleSharingDataElement.innerText = "No multiple sharing data available.";
+            }
+        }
+
+       
+        displaySingleSharingData();
+        displayMultipleSharingData();
+    </script>
+</body>
+</html>

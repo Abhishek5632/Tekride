@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="style.css">
+    <style>
+        .choices {
+          padding-top: 200px;
+          text-align: center;
+        }
+      
+        html {
+          background-color: rgb(147, 172, 202);
+        }
+      
+        body {
+          background-color: rgb(165, 192, 225);
+          font-family: Arial, sans-serif;
+        }
+      
+        h1 {
+          font-size: 36px;
+          font-weight: bold;
+          color: #003366;
+          margin-bottom: 30px;
+        }
+      
+        button {
+          background-color: #00bcd4;
+          color: white;
+          border: none;
+          padding: 15px 40px;
+          font-size: 18px;
+          font-weight: 600;
+          border-radius: 8px;
+          margin: 10px;
+          cursor: pointer;
+          transition: all 0.3s ease;
+        }
+      
+        button a {
+          color: white;
+          text-decoration: none;
+        }
+      
+        button:hover {
+          background-color: #003366;
+          transform: scale(1.05);
+        }
+      
+        button:active {
+          transform: scale(1);
+          background-color: #004e6a;
+        }
+
+        select {
+          padding: 10px;
+          margin-top: 20px;
+          font-size: 16px;
+        }
+    </style>
+</head>
+<body>
+    <div class="choices">
+        <h1 id="ride-title">Which Type of Ride Do You Want?</h1>
+
+        <button type="submit"><a href="singlesharing.html" id="single-ride">Single</a></button>
+        <button><a href="multiplesharing.html" id="multiple-ride">Multiple</a></button>
+    </div>
+
+    <script>
+        function changeLanguage(language) {
+            const translations = {
+                en: {
+                    title: "Which Type of Ride Do You Want?",
+                    single: "Single",
+                    multiple: "Multiple"
+                },
+                hi: {
+                    title: "आपको किस प्रकार की सवारी चाहिए?",
+                    single: "एकल",
+                    multiple: "कई"
+                },
+                ta: {
+                    title: "நீங்கள் எந்த வகையான பயணத்தை விரும்புகிறீர்கள்?",
+                    single: "ஒன்று",
+                    multiple: "பல"
+                }
+            };
+
+            document.getElementById("ride-title").textContent = translations[language].title;
+            document.getElementById("single-ride").textContent = translations[language].single;
+            document.getElementById("multiple-ride").textContent = translations[language].multiple;
+
+            localStorage.setItem('selectedLanguage', language);
+        }
+
+        window.onload = function() {
+            const selectedLanguage = localStorage.getItem('selectedLanguage') || 'en';
+            changeLanguage(selectedLanguage);
+            document.getElementById("language-selector").value = selectedLanguage;
+        };
+    </script>
+</body>
+</html>

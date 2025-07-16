@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Offline Mode</title>
+  <script>
+    const translations = {
+      en: {
+        heading: "You want Offline booking",
+        description: "You can book a ride by calling our toll-free number:",
+        reconnect: "Reconnect to the internet to continue using our services.",
+        phone: "1-800-123-4567"
+      },
+      hi: {
+        heading: "आप ऑफ़लाइन बुकिंग करना चाहते हैं",
+        description: "आप हमारे टोल-फ्री नंबर पर कॉल करके राइड बुक कर सकते हैं:",
+        reconnect: "हमारी सेवाओं का उपयोग जारी रखने के लिए इंटरनेट से पुनः कनेक्ट करें।",
+        phone: "1-800-123-4567"
+      },
+      ta: {
+        heading: "நீங்கள் ஆஃப்லைன் முன்பதிவு செய்ய விரும்புகிறீர்கள்",
+        description: "எங்கள் டோல்-ஃப்ரீ எண்ணுக்கு அழைப்பின் மூலம் நீங்கள் ஒரு பயணத்தை முன்பதிவு செய்யலாம்:",
+        reconnect: "எங்கள் சேவைகளை தொடர்ந்து பயன்படுத்த இணையத்தை மீண்டும் இணைக்கவும்.",
+        phone: "1-800-123-4567"
+      }
+    };
+
+    function changeLanguage(lang) {
+      const content = translations[lang];
+      if (!content) return;
+
+      document.getElementById("heading").textContent = content.heading;
+      document.getElementById("description").textContent = content.description;
+      document.getElementById("reconnect").textContent = content.reconnect;
+      document.getElementById("phone-number").textContent = content.phone;
+
+      localStorage.setItem('selectedLanguage', lang);
+    }
+
+    function setLanguageOnLoad() {
+      const selectedLang = localStorage.getItem('selectedLanguage') || 'en';
+      changeLanguage(selectedLang);
+    }
+
+    window.addEventListener('online', () => {
+      window.location.href = 'index.html';
+    });
+  </script>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      background-color: #f7f7f7;
+      text-align: center;
+      padding: 50px;
+      color: #333;
+    }
+    .container {
+      max-width: 600px;
+      margin: auto;
+      padding: 20px;
+      background: #fff;
+      box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+      border-radius: 10px;
+    }
+    h1 {
+      color: #003366;
+    }
+    p {
+      font-size: 18px;
+    }
+    .phone-number {
+      font-size: 22px;
+      color: #d32f2f;
+      font-weight: bold;
+    }
+  </style>
+</head>
+<body onload="setLanguageOnLoad()">
+  <div class="container">
+    <h1 id="heading">You want Offline booking</h1>
+    <p id="description">You can book a ride by calling our toll-free number:</p>
+    <p id="phone-number" class="phone-number">1-800-123-4567</p>
+    <p id="reconnect">Reconnect to the internet to continue using our services.</p>
+  </div>
+</body>
+</html>

@@ -1,0 +1,672 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>TekRide</title>
+  <script>
+   
+  
+
+    function validatePassword() {
+      const password = prompt("Enter the password to access the data:");
+      const correctPassword = "123"; 
+      if (password === correctPassword) {
+        alert("Access granted!");
+      
+        window.location.href = "display.html";
+      } else {
+        alert("Incorrect password. Access denied.");
+      }
+    }
+  </script>
+
+  <style>
+    body, html{
+      margin: 0;
+      padding: 0;
+      font-family: 'Raleway', Arial, sans-serif;
+      color: #921616;
+      line-height: 1.6;
+      background-color: #e0f7fa; 
+    }
+    .logo {
+  display: flex;
+  align-items: center;
+  font-size: 24px;
+  font-weight: bold;
+  color: white;
+}
+
+.logo img {
+  width: 100px; 
+  height: auto;
+  margin-right: 10px; 
+}
+
+
+    body {
+      overflow-x: hidden; 
+    }
+
+    .container {
+      width: 80%;
+      margin: 0 auto;
+    }
+
+    h1, h2, h3 {
+      color: #003366;
+      font-family: 'Montserrat', Arial, sans-serif;
+    }
+
+    .styled-paragraph {
+      color: #eaf0f1;
+      font-size: 18px;
+      line-height: 1.8;
+    }
+
+  
+    header {
+      background: linear-gradient(to right, #003366, #00bcd4);
+      padding: 20px 0;
+      box-shadow: 0 2px 10px rgba(5, 109, 193, 0.9);
+    }
+
+    nav {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 0 30px;
+    }
+
+    nav .logo {
+      font-size: 30px;
+      color: white;
+      font-weight: 600;
+    }
+
+    nav ul {
+      list-style: none;
+      display: flex;
+    }
+
+    nav ul li {
+      margin-left: 30px;
+    }
+
+    nav ul li a {
+      color: white;
+      text-decoration: none;
+      font-size: 18px;
+      transition: color 0.3s ease, transform 0.3s ease;
+    }
+
+    nav ul li a:hover {
+      color: #00bcd4;
+      transform: scale(1.1);
+    }
+
+    #hero {
+      background: linear-gradient(to bottom, rgba(122, 165, 201, 0.9), rgba(122, 162, 194, 0.9)), url("../707.jpg") no-repeat center center/cover;
+      color: white;
+      padding: 120px 0;
+      text-align: center;
+    }
+
+    #hero .hero-content h1 {
+      font-size: 55px;
+      font-weight: 700;
+      text-shadow: 2px 2px 10px rgba(0, 0, 0, 0.5);
+      margin-bottom: 20px;
+    }
+
+    #hero .cta-button {
+      background-color: black;
+      color: white;
+      padding: 20px 40px;
+      text-decoration: none;
+      font-size: 20px;
+      border-radius: 5px;
+      transition: background-color 0.3s ease, transform 0.3s ease;
+    }
+
+    #hero .cta-button:hover {
+      background-color: #00bcd4;
+      transform: scale(1.05);
+    }
+
+
+    .image-container {
+      display: flex;
+      overflow: hidden;
+      position: relative;
+      width: 100%;
+      height: 200px;
+      background-color: #fff;
+    }
+
+    .scrolling-images {
+      display: flex;
+      animation: scroll-left 10s linear infinite;
+      width: calc(300px * 10); 
+    }
+
+    .scrolling-images img {
+      width: 300px;
+      height: 200px;
+      margin-right: 10px;
+    }
+
+    @keyframes scroll-left {
+      0% {
+        transform: translateX(0);
+      }
+      100% {
+        transform: translateX(-40%);
+      }
+    }
+
+    #features {
+      padding: 70px 0;
+      background: linear-gradient(to bottom, rgba(122, 165, 201, 0.9), rgba(122, 162, 194, 0.9));
+      text-align: center;
+    }
+
+    #features h2 {
+      font-size: 40px;
+      color: #003366;
+      margin-bottom: 40px;
+      font-weight: 600;
+    }
+
+    #features .feature-list {
+      display: flex;
+      justify-content: space-between;
+      flex-wrap: wrap;
+      gap: 30px;
+    }
+
+    @media (max-width: 768px) {
+      .feature-list {
+        flex-direction: column;
+      }
+
+      .feature-card {
+        width: 100%;
+        margin: 10px 0;
+      }
+    }
+
+    .feature-card {
+      background: #e7d6d6;
+      color: #003366;
+      padding: 25px;
+      border-radius: 15px;
+      box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+      width: 23%;
+      margin: 15px;
+      position: relative;
+      overflow: hidden;
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
+      border: 2px solid rgba(46, 127, 193, 0.9);
+    }
+
+    .feature-card:hover {
+      transform: translateY(-10px);
+      box-shadow: 10px 35px 40px rgba(69, 132, 184, 0.9);
+      background-color: rgba(122, 164, 199, 0.9);
+      border: 2px solid rgba(79, 147, 241);
+    }
+
+    .feature-list .center-card {
+      margin-left: auto;
+      margin-right: auto;
+      width: 23%;
+    }
+
+    .divider-line {
+      width: 100%;
+      height: 2px;
+      background-color: #01060c;
+      margin: 50px auto;
+    }
+   
+
+
+    #aboutus {
+      padding: 80px 0;
+      background: #f7f7f7;
+      text-align: center;
+    }
+
+    #aboutus  h2 {
+      font-size: 32px;
+      margin-bottom: 20px;
+    }
+
+    
+    footer {
+      background: #003366;
+      color: white;
+      text-align: center;
+      padding: 20px 0;
+    }
+    
+#features h2 {
+  font-size: 56px; 
+  font-family: 'Poppins', sans-serif; /
+  font-weight: 700; 
+  color: #222; /
+  text-align: center;
+  letter-spacing: 5px; 
+  text-transform: uppercase;
+  margin-bottom: 40px;
+  position: relative; 
+  z-index: 2; 
+  padding: 10px 0;
+  overflow: hidden;
+}
+
+
+#features h2::after {
+  content: '';
+  position: absolute;
+  bottom: -5px; 
+  left: 50%;
+  width: 90%; 
+  height: 10px; 
+  background-color: #007bff;
+  clip-path: polygon(0% 0%, 100% 0%, 90% 100%, 10% 100%);  
+  transform: translateX(-50%);
+}
+
+footer {
+  background-color: #003366; 
+  color: white;
+  text-align: center;
+  padding: 30px 0; 
+}
+
+footer p {
+  font-size: 16px;
+  margin: 10px 0; 
+}
+footer a {
+  color: #00bcd4; 
+  text-decoration: none; 
+  font-weight: bold; 
+  transition: color 0.3s ease; 
+}
+
+footer a:hover {
+  color: #ffffff; 
+  text-decoration: underline; 
+}
+
+footer ul {
+  list-style: none; 
+  padding: 0;
+  margin: 20px 0 0 0; 
+  display: flex;
+  justify-content: center; 
+}
+
+footer ul li {
+  margin: 0 15px;
+}
+
+footer ul li a {
+  font-size: 18px; 
+  color: #00bcd4; 
+  transition: transform 0.3s ease, color 0.3s ease; 
+}
+
+footer ul li a:hover {
+  color: #ffffff; 
+  transform: scale(1.1);
+}
+
+    .settings-dropdown {
+    position: relative;
+    display: inline-block;
+    color: white;
+    cursor: pointer;
+  }
+
+  .settings-dropdown a {
+    color: white;
+    text-decoration: none;
+  }
+
+  .settings-dropdown .dropdown-content {
+    display: none;
+    position: absolute;
+    background-color: white;
+    color: black;
+    min-width: 200px;
+    box-shadow: 0px 8px 16px rgba(0, 0, 0, 0.2);
+    z-index: 1;
+  }
+
+  .settings-dropdown .dropdown-content a {
+    color: black;
+    padding: 10px 20px;
+    text-decoration: none;
+    display: block;
+    transition: background-color 0.3s ease;
+  }
+
+  .settings-dropdown .dropdown-content a:hover {
+    background-color: #00bcd4;
+    color: white;
+  }
+
+  .settings-dropdown:hover .dropdown-content {
+    display: block;
+  }
+
+
+  .settings-dropdown .dropdown-content .sub-dropdown {
+    position: relative;
+  }
+
+  .settings-dropdown .dropdown-content .sub-dropdown-content {
+    display: none;
+    position: absolute;
+    top: 0;
+    left: 100%;
+    background-color: white;
+    color: black;
+    min-width: 150px;
+    box-shadow: 0px 8px 16px rgba(0, 0, 0, 0.2);
+    z-index: 1;
+  }
+
+  .settings-dropdown .dropdown-content .sub-dropdown-content a {
+    padding: 8px 20px;
+    text-decoration: none;
+    color: black;
+    display: block;
+  }
+
+  .settings-dropdown .dropdown-content .sub-dropdown-content a:hover {
+    background-color: #00bcd4;
+    color: white;
+  }
+
+  .settings-dropdown .dropdown-content .sub-dropdown:hover .sub-dropdown-content {
+    display: block;
+  }
+
+
+  </style>
+  <script src="connection-check.js"></script> 
+</head>
+</head>
+<body>
+
+  
+  <header>
+    <nav>
+      <div class="logo">
+        <img src="C:\Users\aman\Downloads\Screenshot_2025-01-09_215134-removebg-preview.png"alt="TekRide Logo" class="logo-image">
+        <span>TekRide</span>
+      </div>
+      <ul>
+        <li><a id="home" href="index.html">Home</a></li>
+       
+       
+        <li>
+          <div class="settings-dropdown">
+            <a href="javascript:void(0);">Settings</a>
+            <div class="dropdown-content">
+              <a href="javascript:void(0);">Option 1</a>
+              <a href="javascript:void(0);">Option 2</a>
+              <a href="javascript:void(0);">Option 3</a>
+              <div class="sub-dropdown">
+                <a href="javascript:void(0);">Language</a>
+                <div class="sub-dropdown-content">
+                  <a href="javascript:void(0);" onclick="changeLanguage('en')">English</a>
+                  <a href="javascript:void(0);" onclick="changeLanguage('hi')">Hindi</a>
+                  <a href="javascript:void(0);" onclick="changeLanguage('ta')">Tamil</a>
+                </div>
+              </div>
+              <a href="javascript:void(0);">Option 4</a>
+              <a href="javascript:void(0);">Option 5</a>
+            </div>
+          </div>
+        </li>
+        <li><a id="feature" href="#features">Feature</a></li>
+        <li><a id="about" href="#aboutus">About</a></li>
+        <li><a id="contactUs" href="contactus.html">Contact Us</a></li>
+      </ul>
+    </nav>
+  </header>
+  
+
+
+  <section id="hero">
+    <div class="hero-content">
+      <h1>Welcome to TekRide</h1>
+      <p class="styled-paragraph">Your fast and affordable ride is just a click away.</p>
+      <a href="choices.html" class="cta-button">Book a Ride</a>
+    </div>
+  </section>
+
+  <div class="image-container">
+    <div class="scrolling-images">
+      <img src="C:\Users\aman\Downloads\img1.jpeg" alt="Image 1">
+      <img src="C:\Users\aman\Downloads\img1.jpeg" alt="Image 2">
+      <img src="C:\Users\aman\Downloads\img1.jpeg" alt="Image 3">
+      <img src="C:\Users\aman\Downloads\img1.jpeg" alt="Image 4">
+      <img src="C:\Users\aman\Downloads\img1.jpeg" alt="Image 5">
+    </div>
+
+  </div>
+ <div class="divider-line"></div>
+
+  <section id="features">
+    <div class="container">
+      <div class="divider-line2"></div>
+      <h2>Our Features</h2>
+      <div class="feature-list">
+        <div class="feature-card">
+          <h3>Multiple Pickup/Drop Locations</h3>
+          <p>Choose your preferred location for a seamless ride experience.</p>
+          <a href="feature1.html">Click to know more</a>
+        </div>
+        <div class="feature-card">
+          <h3>Instant Booking</h3>
+          <p>Book your cab instantly through our mobile app or helpline.</p>
+        </div>
+        <div class="feature-card">
+          <h3>Language Options</h3>
+          <p>Enjoy services in your preferred regional language.</p>
+          <a href="feature3.html">Click to know more</a>
+        </div>
+        <div class="feature-card">
+          <h3>Daily Scheduling of Rides</h3>
+          <p>Schedule your rides daily with ease.</p>
+          <a href="ride_schedule.html">Click to know more</a>
+        </div>
+        
+        <div class="feature-card center-card">
+          <h3>Ride Customization</h3>
+          <p>Customize your car type, seating, and amenities.</p>
+          <a href="ride_preferences.html">Click to know more</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <div class="scrolling-images">
+    <img src="C:\Users\aman\Downloads\img1.jpeg" alt="Image 1">
+    <img src="C:\Users\aman\Downloads\img1.jpeg" alt="Image 2">
+    <img src="C:\Users\aman\Downloads\img1.jpeg" alt="Image 3">
+    <img src="C:\Users\aman\Downloads\img1.jpeg" alt="Image 4">
+    <img src="C:\Users\aman\Downloads\img1.jpeg" alt="Image 5">
+  </div>
+</div>
+
+  <div class="divider-line"></div>
+
+  <section id="aboutus">
+    <div class="container">
+      <h2>About Us</h2>
+      <p>We provide the best taxi solutions for your daily travel needs.</p>
+    </div>
+  </section>
+ 
+   
+
+  <footer>
+    <p>&copy; 2024 TekRide. All rights reserved.</p>
+    <p>Contact us: <a href="mailto:support@tekrideservice.com">support@tekrideservice.com</a></p>
+    <p>Follow us on social media:</p>
+    <ul>
+      <li><a href="#">Facebook</a></li>
+      <li><a href="#">Twitter</a></li>
+      <li><a href="#">Instagram</a></li>
+      <li><a href="javascript:void(0);" onclick="validatePassword()">Admin access</a></li>
+    </ul>
+  </footer>
+  
+</body>
+</html>
+<script>
+
+
+function setLanguageOnLoad() {
+  let selectedLang = localStorage.getItem('selectedLanguage') || 'en'; 
+  changeLanguage(selectedLang);
+}
+
+function changeLanguage(lang) {
+  const content = translations[lang];
+
+  localStorage.setItem('selectedLanguage', lang);
+
+  document.querySelector("#hero h1").textContent = content.welcome;
+  document.querySelector("#hero .styled-paragraph").textContent = content.tagline;
+  document.querySelector(".cta-button").textContent = content.bookRide;
+  document.querySelector("#features h2").textContent = content.features;
+  document.querySelector("#aboutus h2").textContent = content.about;
+  document.querySelector("#aboutus p").textContent = content.aboutDescription; 
+  document.querySelector("footer p").textContent = content.follow;
+  document.querySelector("footer a").textContent = content.contact;
+  document.querySelector("footer ul li a").textContent = content.adminAccess;
+  document.querySelector("#features .feature-card:nth-child(1) h3").textContent = content.feature1Title;
+  document.querySelector("#features .feature-card:nth-child(1) p").textContent = content.feature1Desc;
+  document.querySelector("#features .feature-card:nth-child(2) h3").textContent = content.feature2Title;
+  document.querySelector("#features .feature-card:nth-child(2) p").textContent = content.feature2Desc;
+  document.querySelector("#features .feature-card:nth-child(3) h3").textContent = content.feature3Title;
+  document.querySelector("#features .feature-card:nth-child(3) p").textContent = content.feature3Desc;
+  document.querySelector("#features .feature-card:nth-child(4) h3").textContent = content.feature4Title;
+  document.querySelector("#features .feature-card:nth-child(4) p").textContent = content.feature4Desc;
+  document.querySelector("#features .feature-card:nth-child(5) h3").textContent = content.feature5Title;
+  document.querySelector("#features .feature-card:nth-child(5) p").textContent = content.feature5Desc;
+  document.getElementById('home').textContent = content.home;
+  document.getElementById('feature').textContent = content.feature;
+  document.getElementById('contactUs').textContent = content.contactUs;
+  document.getElementById("about").textContent = content.about;
+
+
+  const settingsLinks = document.querySelectorAll(".settings-dropdown a");
+  settingsLinks[0].textContent = content.settings; 
+}
+
+window.onload = setLanguageOnLoad;
+
+const translations = {
+  en: {
+    welcome: "Welcome to TekRide",
+    tagline: "Your fast and affordable ride is just a click away.",
+    bookRide: "Book a Ride",
+    features: "Our Features",
+    about: "About Us",
+    aboutDescription: "We provide the best taxi solutions for your daily travel needs.",
+    contact: "Contact Us",
+    follow: "Follow us on social media:",
+    home: "Home",
+    settings: "Settings",
+    adminAccess: "Admin Access",
+    languageOptions: "Language Options",
+    feature1Title: "Multiple Pickup/Drop Locations",
+    feature1Desc: "Choose your preferred location for a seamless ride experience.",
+    feature2Title: "Instant Booking",
+    feature2Desc: "Book your cab instantly through our mobile app or helpline.",
+    feature3Title: "Language Options",
+    feature3Desc: "Enjoy services in your preferred regional language.",
+    feature4Title: "Daily Scheduling of Rides",
+    feature4Desc: "Schedule your rides daily with ease.",
+    feature5Title: "Ride Customization",
+    feature5Desc: "Customize your car type, seating, and amenities.",
+    home: "Home",
+    feature: "Feature",
+    contactUs: "Contact Us",
+    settings: "Settings",
+    aboutus : "About us "
+  },
+  hi: {
+    welcome: "टेकराइड में आपका स्वागत है",
+    tagline: "आपकी तेज़ और किफ़ायती सवारी बस एक क्लिक दूर है।",
+    bookRide: "सवारी बुक करें",
+    features: "हमारी विशेषताएं",
+    about: "हमारे बारे में",
+    aboutDescription: "हम आपके दैनिक यात्रा की जरूरतों के लिए सबसे अच्छी टैक्सी समाधान प्रदान करते हैं।",
+    contact: "संपर्क करें",
+    follow: "सोशल मीडिया पर हमें फॉलो करें:",
+    home: "होम",
+    settings: "सेटिंग्स",
+    adminAccess: "व्यवस्थापक पहुँच",
+    languageOptions: "भाषा विकल्प",
+    feature1Title: "कई पिकअप/ड्रॉप स्थान",
+    feature1Desc: "एक निर्बाध सवारी अनुभव के लिए अपनी पसंदीदा स्थान चुनें।",
+    feature2Title: "तत्काल बुकिंग",
+    feature2Desc: "हमारे मोबाइल ऐप या हेल्पलाइन के माध्यम से तुरंत टैक्सी बुक करें।",
+    feature3Title: "भाषा विकल्प",
+    feature3Desc: "अपनी पसंदीदा क्षेत्रीय भाषा में सेवाओं का आनंद लें।",
+    feature4Title: "दैनिक सवारी शेड्यूलिंग",
+    feature4Desc: "आसानी से अपनी सवारी का शेड्यूल तय करें।",
+    feature5Title: "सवारी अनुकूलन",
+    feature5Desc: "अपनी कार प्रकार, बैठने की व्यवस्था और सुविधाओं को अनुकूलित करें।",
+    home: "मुखपृष्ठ",
+    feature: "विशेषता",
+    contactUs: "संपर्क करें",
+    settings: "सेटिंग्स",
+    aboutus : "के बारे में"
+  
+  },
+  ta: {
+    welcome: "டெக் ரைடில் உங்களை வரவேற்கிறோம்",
+    tagline: "உங்கள் விரைவான மற்றும் மலிவான பயணம் ஒரு கிளிக்கில் உள்ளது.",
+    bookRide: "பயணத்தை பதிவு செய்யுங்கள்",
+    features: "எங்கள் அம்சங்கள்",
+    about: "எங்களைப் பற்றி",
+    aboutDescription: "நாங்கள் உங்கள் தினசரி பயண தேவைகளுக்கு சிறந்த டாக்சி தீர்வுகளை வழங்குகிறோம்.",
+    contact: "தொடர்பு கொள்ளுங்கள்",
+    follow: "சமூக ஊடகங்களில் எங்களை பின்தொடரவும்:",
+    home: "முகப்பு",
+    settings: "அமைப்புகள்",
+    adminAccess: "நிர்வாக அணுகல்",
+    languageOptions: "மொழி விருப்பங்கள்",
+    feature1Title: "பல பிட்கப்/டிராப்ப் இடங்கள்",
+    feature1Desc: "ஒரு நெறியிழுக்கவிய பயண அனுபவத்திற்கு உங்கள் விருப்பமான இடத்தை தேர்ந்தெடுக்கவும்.",
+    feature2Title: "திடமான முன்பதிவு",
+    feature2Desc: "எங்கள் மொபைல் பயன்பாட்டை அல்லது உதவி நம்பர் மூலம் உங்கள் காப் லைவ்லி முன்பதிவை செய்து கொள்ளவும்.",
+    feature3Title: "மொழி விருப்பங்கள்",
+    feature3Desc: "உங்கள் விருப்பமான முறைமையில் தேர்ந்தெடுக்கவும்.",
+    feature4Title: "பரிந்துரைகள் மற்றும் காலத்தைக் கவனிக்கவும்.",
+    feature4Desc: "உங்கள் கார் வகையை, அம்சங்களை மற்றும் அம்சங்களை விருப்பமுறைப்படி அமைக்கவும்.",
+     feature5Title: "சர்வீஸ் விருப்பங்கள்",
+    feature5Desc: "உங்கள் கார் வகை, இருக்கை மற்றும் வசதிகளை தனிப்பயனாக்குங்கள்.",
+    home: "முகப்பு",
+    feature: "அம்சம்",
+    contactUs: "தொடர்பு கொள்ளவும்",
+    settings: "அமைப்புகள்",
+    aboutus : "பற்றி"
+  }
+};
+
+
+</script>

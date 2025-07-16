@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>About Language Change Feature - TekRide</title>
+  <style>
+    /* General Styles */
+    body, html {
+      margin: 0;
+      padding: 0;
+      font-family: 'Arial', sans-serif;
+      background-color: #f4f4f4;
+      color: #333;
+    }
+
+    .container {
+      width: 80%;
+      margin: 0 auto;
+      padding: 30px 0;
+    }
+
+    h1, h2 {
+      color: #003366;
+      font-family: 'Montserrat', Arial, sans-serif;
+    }
+
+    .content {
+      background-color: white;
+      padding: 30px;
+      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+      border-radius: 8px;
+      margin-top: 30px;
+    }
+
+    p {
+      font-size: 18px;
+      line-height: 1.6;
+      color: #555;
+    }
+
+    .cta-button {
+      background-color: #00bcd4;
+      color: white;
+      padding: 12px 24px;
+      font-size: 18px;
+      border-radius: 5px;
+      text-decoration: none;
+      display: inline-block;
+      margin-top: 20px;
+    }
+
+    .cta-button:hover {
+      background-color: #0288d1;
+    }
+
+    .feature-list {
+      list-style-type: none;
+      padding: 0;
+    }
+
+    .feature-list li {
+      margin-bottom: 10px;
+    }
+
+    .feature-list li::before {
+      content: "✔";
+      color: #00bcd4;
+      margin-right: 10px;
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <h1 id="page-title">About TekRide's Language Change Feature</h1>
+    <div class="content">
+      <h2 id="feature-heading">Language Flexibility at Your Fingertips</h2>
+      <p id="intro-text">
+        TekRide understands the importance of making our service accessible to everyone, regardless of their preferred language. That's why we’ve introduced a multi-language feature on our platform, enabling users to choose from multiple languages for the interface. 
+        This feature ensures a smoother and more personalized experience for all users.
+      </p>
+      <h3 id="available-languages-heading">Available Languages:</h3>
+      <ul class="feature-list" id="languages-list">
+        <!-- Dynamic list items will be inserted here -->
+      </ul>
+      <p id="how-to-change-lang">You can easily switch between these languages using the language options available at the top of the homepage or any other page.</p>
+      <h3 id="change-lang-heading">How to Change the Language:</h3>
+      <p id="steps-intro">To change the language, simply follow these steps:</p>
+      <ol id="steps-list">
+        <li>Visit any page of the TekRide website.</li>
+        <li>Look for the language selection option in the navigation bar (top of the page).</li>
+        <li>Select your preferred language from the available options (English, Hindi, or Tamil).</li>
+        <li>The entire website will be updated instantly to display content in your selected language.</li>
+      </ol>
+      <p id="simple-text">It’s that simple! We’re committed to ensuring you have the best experience possible in your preferred language.</p>
+      <a href="index.html" class="cta-button" id="cta-button">Go Back to Home</a>
+    </div>
+  </div>
+
+  <script src="languageSwitcherAbout.js"></script>
+</body>
+</html>
